@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+	<script src="https://html5shim.googlecode.com/svn/trunk/html5.js">
+	</script>
+<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"0d4d84695b",applicationID:"12680714"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/favicon.ico" />
+<title>Common Types of Corporate Strategies | Boundless Management</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://courses.lumenlearning.com/boundless-management/xmlrpc.php" />
+
+<link rel='dns-prefetch' href='//courses.lumenlearning.com' />
+<link rel='dns-prefetch' href='//use.typekit.net' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/courses.lumenlearning.com\/boundless-management\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-in-post-ads-css'  href='https://courses.lumenlearning.com/boundless-management/wp-content/plugins/mts-wp-in-post-ads/public/css/wp-in-post-ads-public.css?ver=1.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='pressbooks/structure-css'  href='https://courses.lumenlearning.com/boundless-management/wp-content/themes/pressbooks-book/dist/styles/structure.css?id=73555eac1f448b204588' type='text/css' media='screen, print' />
+<link rel='stylesheet' id='pressbooks/webfonts-css'  href='https://fonts.googleapis.com/css?family=Oswald|Open+Sans+Condensed:300,300italic&#038;subset=latin,cyrillic,greek,cyrillic-ext,greek-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='pressbooks/theme-css'  href='https://courses.lumenlearning.com/boundless-management/wp-content/uploads/sites/1932/pressbooks/css/style.css?ver=1602759523' type='text/css' media='screen, print' />
+<link rel='stylesheet' id='dashicons-css'  href='https://courses.lumenlearning.com/boundless-management/wp-includes/css/dashicons.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='pressbooks/a11y-css'  href='https://courses.lumenlearning.com/boundless-management/wp-content/themes/pressbooks-book/dist/styles/a11y.css?id=67ce4802af40e4fea4f2' type='text/css' media='screen' />
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script async type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script async type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/pressbooks-book/dist/scripts/toc.js?id=41dec06e39b599e9d22d'></script>
+<script async type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/pressbooks-book/dist/scripts/a11y.js?id=3faa829da7a4aa2b976a'></script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/js/iframe-resizer.js?ver=4.9.8'></script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/js/h5p-resizer.js?ver=4.9.8'></script>
+<script type='text/javascript' src='//use.typekit.net/mje6fya.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js?ver=3.7.3'></script>
+<link rel='https://api.w.org/' href='https://courses.lumenlearning.com/boundless-management/wp-json/' />
+<link rel='prev' title='Creating Strategy: Common Approaches' href='https://courses.lumenlearning.com/boundless-management/chapter/creating-strategy-common-approaches/' />
+<link rel='next' title='The Planning Process' href='https://courses.lumenlearning.com/boundless-management/chapter/the-planning-process/' />
+<link rel="canonical" href="https://courses.lumenlearning.com/boundless-management/chapter/common-types-of-corporate-strategies/" />
+<link rel='shortlink' href='https://courses.lumenlearning.com/boundless-management/?p=725' />
+<link rel="alternate" type="application/json+oembed" href="https://courses.lumenlearning.com/boundless-management/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcourses.lumenlearning.com%2Fboundless-management%2Fchapter%2Fcommon-types-of-corporate-strategies%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://courses.lumenlearning.com/boundless-management/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcourses.lumenlearning.com%2Fboundless-management%2Fchapter%2Fcommon-types-of-corporate-strategies%2F&#038;format=xml" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-73352819-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<meta itemprop='author' content='Boundless' id='author'>
+<meta itemprop='contributor' content='' id='contributor'>
+<meta itemprop='copyrightHolder' content='Lumen Learning' id='copyrightHolder'>
+<meta itemprop='editor' content='' id='editor'>
+<meta itemprop='image' content='https://courses.lumenlearning.com/boundless-management/wp-content/uploads/sites/1932/2017/06/skitterphoto-1408-default.jpg' id='image'>
+<meta itemprop='inLanguage' content='en' id='inLanguage'>
+<script>try{Typekit.load();}catch(e){}</script><style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; background: none; }
+/* ]]> */
+</style>
+
+</head>
+<body class="singular chapter-template-default single single-chapter postid-725" id="commontypesofcorporatestrategies" itemscope itemtype="http://schema.org/WebPage" itemref="about copyrightHolder copyrightYear inLanguage publisher" >
+
+		
+		<!-- table of contents -->
+		
+			<div class="nav-container">
+
+				<!-- skip to content -->
+				<div class="skip-to-content">
+					<a href="#content">Skip to main content</a>
+				</div>
+
+									<!-- nav bar -->
+					<nav role="navigation"  style="background-color: #007FAB">
+						<!-- logo / branding -->
+						<div class="book-title-wrapper">
+							<div class="bombadil-logo"><a href="https://courses.lumenlearning.com/"><img src="https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/images/LumenOnDark-150x69.png" alt="Lumen" /></a></div>
+						<!-- Book Title -->
+							<h1 class="book-title">
+																	<a href="https://courses.lumenlearning.com/boundless-management/" title="Boundless Management" rel="home">Boundless Management</a>
+															</h1>
+						</div>
+					</nav>
+
+											<div class="sub-nav">
+							<div class="sub-nav-wrapper">
+								<!-- page title -->
+																	<div class="author-wrap">
+										<h3>Strategic Management</h3>
+									</div> <!-- end .author-name -->
+								
+								<!-- search bar -->
+								<form role="search" method="get" id="searchform" class="searchform" action="https://courses.lumenlearning.com/boundless-management/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form>							</div>
+						</div><!-- end sub-nav -->
+					
+							</div> <!-- end .nav-container -->
+
+	<div class="wrapper"><!-- for sitting footer at the bottom of the page -->
+			<div id="wrap">
+				<div id="content" role="main">
+
+		
+				<h2 class="entry-title">Common Types of Corporate Strategies</h2>
+
+				<div id="post-725" class="standard post-725 chapter type-chapter status-publish hentry">
+
+					<div class="entry-content">
+											
+					<div id="wpipa-978-container" data-id="978" data-variation="none" class="wpipa-container wpipa-align-center"><div id="wpipa-978" class="wpipa"style="background-color:#ffffff;color:#ffffff;padding:20px;max-width:px;"><p><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><br />
+<ins class="adsbygoogle" style="display: block; text-align: center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9908576673465542" data-ad-slot="5131516339"></ins><br />
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div></div><div class="boundless-concept">
+<h2>Growth Strategy</h2>
+<p>Growth platforms are specifically named initiatives selected by a business organization to fuel revenue and earnings growth.</p>
+<div class="textbox learning-objectives">
+<h3>Learning Objectives</h3>
+<p>Distinguish between the varying integrations and diversifications that allow businesses to pursue strategic growth</p>
+</div>
+<div class="textbox key-takeaways">
+<h3>Key Takeaways</h3>
+<h4>Key Points</h4>
+<ul>
+<li>Strategic growth platforms are long-term initiatives for high-scale revenue increases. Generic examples of commonly selected strategic-growth platforms include pursuing specific and new product areas or entering new distribution channels.</li>
+<li>Diversification is a form of corporate strategy that seeks to increase profitability through greater sales volume obtained from new products or new markets.</li>
+<li>Market development strategy entails expanding the current incumbent market through new users or new uses.</li>
+<li>Market penetration occurs when a company penetrates a market in which current products already exist, enabling the business to compete head to head with incumbents in the market.</li>
+<li>New product development (NPD) is the internal process of bringing a new product to market.</li>
+<li>Integration, either horizontal or vertical, is a merger or acquisition process of entering new, related industries (for example, acquiring a supplier or a competitor in a related industry).</li>
+</ul>
+<h4>Key Terms</h4>
+<ul>
+<li><strong>diversification</strong>: A corporate strategy in which a company acquires or establishes a business other than that of its current product.</li>
+<li><strong>horizontal integration</strong>: The merger or acquisition of new business operations.</li>
+<li><strong>vertical integration</strong>: The integrating of successive stages in the production and marketing process under the ownership or control of a single management organization.</li>
+</ul>
+</div>
+<p>Growth platforms are specifically named initiatives selected by a business organization to fuel revenue and earnings growth. Growth platforms may be strategic or tactical. Strategic growth platforms are longer-term initiatives for high-scale revenue increases. Generic examples of commonly selected strategic growth platforms include pursuit of specific and new product areas, entry into new distribution channels, vertical or horizontal integration, and new product development. Illustrative examples of growth platforms include:</p>
+<ul>
+<li>Apple Computer&#8217;s targeting of &#8220;personal music systems&#8221; to accelerate growth faster than with its personal computer business alone.</li>
+<li>IBM&#8217;s coining of the term &#8220;e-business,&#8221; and its subsequent use as the organizing theme for all that the company did in the late 1990s.</li>
+<li>Google&#8217;s entry into the operating system and laptop realms.</li>
+</ul>
+<div class="wp-caption aligncenter" style="width: 608px;" data-global-id="gid://boundless/Image/9849">
+<div class="figure-cont"><img class="" src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1932/2017/05/31141642/100118-wik-goal-slide.jpeg" alt="image" width="598" height="457" /></p>
+<p class="wp-caption-text"><strong>Wikipedia growth goals and projections</strong>: These graphs show goals and projections for growth for Wikipedia visitors and contributors from The Bridgespan Group for Strategy Development. The graph in the left panel shows the target growth trajectory in number of visitors, from less than 500 million to over 600 million. The graph in the right panel shows an overall increase in the number of contributors across all Wikipedias, with more growth indicated for the already higher-traffic Wikipedias.</p>
+</div>
+</div>
+<h3>Types of Strategies</h3>
+<p>There are a number of different growth strategies, but the most common are:</p>
+<ul>
+<li>Horizontal integration – The merger or acquisition of new business operations. An example of horizontal integration would be Apple entering the search-engine market or a new industry related to laptops and smartphones.</li>
+<li>Vertical integration – Integrating successive stages in the production and marketing process under the ownership or control of a single management organization. An example might include a gas-station company acquiring a oil refinery.</li>
+<li>Diversification – A corporate strategy in which a company acquires or establishes a business other than that of its current product. Diversification can occur either at the business-unit level or at the corporate level. At the business-unit level, diversification is most likely to involve expansion into a new segment of an industry in which the business already competes. At the corporate level, it generally means entrance into a promising business outside the scope of the existing business unit.</li>
+</ul>
+<h3>Other Product / Market Growth Types</h3>
+<h3>Market Penetration</h3>
+<p>Market penetration occurs when a company penetrates a market in which current products already exist. This strategy generally requires great competitive strength, a strong brand, or both, as most market penetrations demand actively taking market share from current incumbents. It is an aggressive and often risky approach to growth.</p>
+<h3>Market Development Strategy</h3>
+<p>Market development strategy entails expanding the potential market through new users or new uses for a product. The strategy is best accomplished through identifying unique niche needs in a specific type of user and filling those needs. Market research is critical in development strategies. New users can be defined as new geographic segments, new demographic segments, new institutional segments, or new psychographic segments.</p>
+<h3>New Product Development</h3>
+<p>In business and engineering, new product development (NPD) is the process of developing, researching, and bringing a new product to market. A product is a set of benefits offered for exchange and can be tangible (that is, something physical you can touch) or intangible (for example, a service, experience, or belief). Identifying new needs or new ways of filling them and developing a new process or product that accomplishes this aim are the goal of this growth strategy. NPD requires investment in research and development, usually over the long term, and extensive trial and error.</p>
+</div>
+<div class="boundless-concept">
+<h2>Consolidation Strategy</h2>
+<p>In business, consolidation refers to the mergers and acquisitions of many smaller companies into much larger ones for economic benefit.</p>
+<div class="textbox learning-objectives">
+<h3>Learning Objectives</h3>
+<p>Explain the relevance of consolidation from a strategic management perspective</p>
+</div>
+<div class="textbox key-takeaways">
+<h3>Key Takeaways</h3>
+<h4>Key Points</h4>
+<ul>
+<li>Mergers and acquisitions (M&amp;A) is an aspect of corporate strategy dealing with the buying, selling, dividing, and combining of different companies and similar entities that can help an enterprise grow rapidly in its sector or location, or acquire new sectors or locations.</li>
+<li>Consolidation occurs when two companies combine to form a new enterprise altogether, eliminating competition and creating broader economies of scale or scope.</li>
+<li>Generally speaking, a merger is a combination of organizations which each abandons its previous brand and business models, creating a new organization with the combined capacities of each.</li>
+<li>In an acquisition, one organization buys out another, with the acquired business usually placing its processes under the brand name of the acquirer.</li>
+<li>The dominant rationale used to explain M&amp;A activity is that acquiring firms seek improved financial performance. However, on average and across most commonly studied variables, M&amp;A activity does necessarily not improve financial performance.</li>
+<li>Because of the costs involved, consolidation is a very high-level strategic decision. All stakeholders on both ends should be consulted, and agreements will often take many months or years to conclude.</li>
+</ul>
+<h4>Key Terms</h4>
+<ul>
+<li><strong>merger</strong>: The legal union of two or more corporations into a single entity, with assets and liabilities typically assumed by the buying party.</li>
+<li><strong>consolidation</strong>: The act or process of consolidating, making firm, or uniting; the state of being consolidated; solidification; combination.</li>
+<li><strong>acquisition</strong>: The act or process of acquiring.</li>
+</ul>
+</div>
+<p>Consolidation (or amalgamation) is the act of merging two or more organizations into one. In strategic management, it often refers to the mergers and acquisitions of many smaller companies into much larger ones. Consolidation occurs when two companies combine to form a new enterprise altogether; neither of the previous companies survives independently. The logic driving consolidation is the creation of economies of scale, economies of scope, new locations, new technology, or some other form of increased competitive capacity.</p>
+<h3>Mergers and Acquisitions</h3>
+<p>Mergers and acquisitions (M&amp;A) are aspects of corporate strategy, corporate finance, and management that deal with the buying, selling, dividing, and combining of different companies and similar entities. This activity can help an enterprise grow rapidly in its sector or location of origin or expand into a new field or new location. M&amp;A is different from joint ventures and other forms of strategic alliance, as mergers or acquisitions aim to create a single organization.</p>
+<p>The distinction between a &#8220;merger&#8221; and an &#8220;acquisition&#8221; has become increasingly blurred in various respects (particularly in terms of the ultimate economic outcome), although it has not completely disappeared. Generally speaking, a merger is a combination of organizations in which each abandons its previous brand and business models, creating a new organization with the combined capacities of each one. In an acquisition, one organization buys out another, with the acquired company usually placing its processes under the brand name of the acquirer.</p>
+<div class="wp-caption aligncenter" style="width: 725px;" data-global-id="gid://boundless/Image/9856">
+<div class="figure-cont"><img class="" src="https://textimgs.s3.amazonaws.com/boundless-management/aph-of-bank-mergers-in-usa.svg#fixme" alt="image" width="715" height="431" /></p>
+<p class="wp-caption-text"><strong>Mergers and acquisitions of U.S. Banks</strong>: This diagram of bank mergers in the United States shows how extensive the consolidation of various companies has been. What start as more than 50 distinct companies have eventually consolidated into fewer than 20.</p>
+</div>
+</div>
+<h3>Merger Dynamics</h3>
+<p>In the pure sense of the term, a merger happens when two firms, often about the same size, agree to go forward as a single new company rather than remain separately owned and operated. This kind of action is more precisely referred to as a &#8220;merger of equals.&#8221; Both companies&#8217; stocks are surrendered and new company stock is issued in its place. For example, in the 1999 merger of Glaxo Wellcome and SmithKline Beecham, both firms ceased to exist independently; a new company, GlaxoSmithKline, was created.</p>
+<p>The classic example of consolidation is the merger of Bell Atlantic with GTE, out of which resulted Verizon Communications. Not every merger with a new name is successful. By consolidating into YRC Worldwide, the combined company lost the considerable value of both Yellow Freight and Roadway Corp.</p>
+<h3>Rationale</h3>
+<p>The dominant rationale used to explain M&amp;A activity is that acquiring firms seek improved financial performance. The following motives are considered to improve financial performance: economy of scale, economy of scope, increased revenue or market share, cross-selling, synergy, taxation, geographical or other diversification, resource transfer, vertical integration, and hiring.</p>
+<p>However, on average and across the most commonly studied variables, acquiring firms&#8217; financial performance does not positively change as a function of their acquisition activity (King, D. R.; Dalton, D. R.; Daily, C. M.; Covin, J. G. 2004. &#8220;Meta-analyses of Post-acquisition Performance: Indications of Unidentified Moderators.&#8221; <em>Strategic Management Journal</em> 25 (2): 187–200. doi:10.1002/smj.371). Other motives for merger and acquisition that may not add shareholder value include diversification, manager overconfidence, empire-building, and management compensation.</p>
+<h3>Managerial Implications</h3>
+<p>Because of the costs involved, consolidation is a very high-level strategic decision. All stakeholders in both organizations should be consulted, and agreements will often take many months or years to conclude. Cultural conflicts between two different organizations are not uncommon, as the mission, vision, and values of the individuals and groups within them are likely to differ. Managing this type of change strategically is complex and rife with conflict. Mismanagement during these processes can minimize the potential synergistic gains and reduce the efficacy of the new strategic plan.</p>
+</div>
+<div class="boundless-concept">
+<h2>Global Strategy</h2>
+<p>Global strategy, as defined in business terms, is an organization&#8217;s strategic guide to pursuing various geographic markets.</p>
+<div class="textbox learning-objectives">
+<h3>Learning Objectives</h3>
+<p>Explain the concept of global strategy within the context of international business and a globalized economy</p>
+</div>
+<div class="textbox key-takeaways">
+<h3>Key Takeaways</h3>
+<h4>Key Points</h4>
+<ul>
+<li>A global strategy may be appropriate in industries where firms face strong pressures to reduce costs but weak pressures for local responsiveness, allowing these firms to sell a standardized product worldwide.</li>
+<li>Companies using a global strategy may achieve economies of scale to improve margins or low price points.</li>
+<li>Globalization is not limited to cost leadership. Differentiation strategies also enable economies of scope, either fulfilling different needs in different markets with a similar series of products, or developing new products based upon the needs and consumption habits of a new market.</li>
+<li>Other primary strategic reasons for globalization are to build supplier relationships, to improve access to raw materials (unique to a given region), and to cut costs by relying on other regions&#8217; specializations.</li>
+<li>With global markets in mind, strategic managers must expand their perspective and use varied models to generate different strategies for different places.</li>
+</ul>
+<h4>Key Terms</h4>
+<ul>
+<li><strong>fixed costs</strong>: A cost of business which does not vary with output or sales; overheads.</li>
+<li><strong>centralized</strong>: Having power concentrated in a single, central authority.</li>
+<li><strong>multinational</strong>: Operating, or having subsidiary companies in multiple countries (especially more than two).</li>
+</ul>
+</div>
+<p>Global strategy, as defined in business terms, is an organization &#8216;s strategic guide to pursuing various geographic markets. A global strategy should address the following questions: What should be the extent of an organization&#8217;s market presence in the world&#8217;s major markets? How can the organization build the necessary global presence? What are the optimal locations around the world for the various value-chain activities? How can the organization turn a global presence into global competitive advantage?</p>
+<h3>When to Go Global</h3>
+<h3>Cost Leadership</h3>
+<p>A global strategy may be appropriate in industries where firms face strong pressures to reduce costs but weak pressures to respond locally; globalization therefore allows these firms to sell a standardized product worldwide. By expanding to a broader consumer base, these firms can take advantage of scale economies (cost advantages that an enterprise obtains due to expansion) and learning-curve effects because they are able to mass-produce a standard product that can be exported (providing that demand is greater than the costs involved).</p>
+<h3>Market Expansion</h3>
+<p>Globalization is not limited to cost leadership, however. Differentiation strategies also enable economies of scope, either fulfilling different needs in different markets with a similar series of products, or developing new products based upon the needs and consumption habits of a new market. Differentiation as part of a global strategy will often require localization, as organizations must adapt to consumer tastes better to compete in the new country. For example, Coca Cola tastes different depending on the country where it is bought because of differences in local preferences.</p>
+<h3>Sourcing</h3>
+<p>Other popular and primary strategic reasons for globalization include building supplier relationships, improving access to raw materials (unique to a given region), and cutting costs by using other regions&#8217; specializations. Starbucks sources coffee beans from all over the world, as climate dramatically affects the type and quality of the bean. The globalization strategy of Starbucks—while it includes selling in many countries—is hugely depending on global sourcing, and strategic managers must carefully monitor this process for costs and benefits.</p>
+<p>Global strategies require firms to coordinate tightly their product and pricing strategies across international markets and locations; therefore, firms that pursue a global strategy are typically highly centralized.</p>
+<h3>Corporate Strategy Implications</h3>
+<p>With global markets in mind, strategic managers must expand their perspective and use varied models to generate different strategies for different places. For example, companies must now conduct a PESTEL analysis for each region in which they operate and recognize expense and competition deviations between regions. For example, tariffs in country A may be much higher than country B, but country B has fewer individuals willing to pay a high price for the good the organization is selling. Managers must conduct a cost/benefit analysis to identify which country actually offers the best profit potential. These analyses are how strategists incorporate global concerns into strategic management.</p>
+<div class="wp-caption aligncenter" style="width: 708px;" data-global-id="gid://boundless/Image/30119">
+<div class="figure-cont"><img class="" src="//figures.boundless-cdn.com/30119/large/Map_of_world_countries_by_GDP_(nominal)_in_US$.png#fixme" alt="image" width="698" height="304" /></p>
+<p class="wp-caption-text"><strong>Gross domestic product (GDP) worldwide</strong>: The map identifies GDP (nominal) in different countries;countries with higher GDPs offer high consumer spending opportunities for multinational enterprises. The U.S. and China have the highest GDPs.</p>
+</div>
+</div>
+</div>
+<div class="boundless-concept">
+<h2>Cooperative Strategy</h2>
+<p>A strategic alliance is a cooperation where each member expects the benefit from cooperation will outweigh the cost of individual efforts.</p>
+<div class="textbox learning-objectives">
+<h3>Learning Objectives</h3>
+<p>Identify the steps involved in forming a strategic alliance to employ cooperative strategies</p>
+</div>
+<div class="textbox key-takeaways">
+<h3>Key Takeaways</h3>
+<h4>Key Points</h4>
+<ul>
+<li>A strategic alliance is a relationship between two or more parties to pursue a set of agreed-upon goals or to meet a critical business need while remaining independent organizations. This form of cooperation lies between mergers and acquisitions and organic growth.</li>
+<li>Partners may provide the strategic alliance with resources such as products, distribution channels, manufacturing capability, project funding, capital equipment, knowledge, expertise, or intellectual property.</li>
+<li>Upper management is tasked with the complex process of identifying good partners and generating agreements of mutual benefit. Strategic alliances can be high-cost, complex strategic components.</li>
+<li>Strategic alliances allow each partner to concentrate on its own best capabilities, learn and develop other competences, and assure adequate suitability of resources and competencies.</li>
+</ul>
+<h4>Key Terms</h4>
+<ul>
+<li><strong>alliance</strong>: The state of being allied; the act of allying or uniting; a union or connection of interests between families, states, parties, etc.</li>
+</ul>
+</div>
+<p>A strategic alliance is a relationship between two or more parties to pursue a set of agreed-upon goals or to meet a critical business need while remaining independent organizations. This form of cooperation lies between mergers and acquisitions (M&amp;A) and organic growth.</p>
+<h3>Reasons for Strategic Alliance</h3>
+<p>The alliance is a cooperation or collaboration that aims for a synergy where each partner hopes that the benefits from the alliance will be greater than those from individual efforts. Partners may provide the strategic alliance with resources such as products, distribution channels, manufacturing capability, project funding, capital equipment, knowledge, expertise, or intellectual property.</p>
+<p>The alliance often involves technology transfer (access to knowledge and expertise), economic specialization (David C. Mowery, Joanne E. Oxley, Brian S. Silverman. Strategic Alliances and Interfirm Knowledge Transfer. Winter 1996. <em>Strategic Management Journal</em>, Vol. 17, Special Issue: Knowledge and the Firm, pp. 77-91), shared expenses, and shared risk.</p>
+<div class="wp-caption aligncenter" style="width: 650px;" data-global-id="gid://boundless/Image/30120">
+<div class="figure-cont"><img class="" src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1932/2017/05/31141645/US_patents_1790-2008.png" alt="image" width="640" height="387" /></p>
+<p class="wp-caption-text"><strong>U.S. patents from 1790-2010</strong>: The above chart highlights the total patents granted over time in the U.S. Because the number of patents has increased in recent years, technology transfers in strategic alliances have become more common.</p>
+</div>
+</div>
+<p>Cooperative sourcing is a collaboration or negotiation between different companies with similar business processes. To save costs, the competitor with the best production capability can insource the business process of the other competitors. This practice is especially common in IT-oriented industries as a result of low to no variable costs, e.g. banking. Since all of the negotiating parties can be outsourcers or insourcers, the main challenge in this collaboration is to find a stable coalition and the company with the best production function. High switching costs, costs for searching potential cooperative sourcers, and negotiating may result in inefficient solutions.</p>
+<h3>Forming a Strategic Alliance</h3>
+<p>Upper management is tasked with the developing complex interactive strategies when entering a strategic alliance. Aligning stakeholders from different businesses and ensuring the costs do not outweigh the benefits requires careful managerial consideration. The following steps highlight key aspects of the strategic alliance process:</p>
+<ul>
+<li><em>Strategy </em> <em>development</em> involves studying the alliance&#8217;s feasibility, objectives, and rationale; it also entails focusing on the major issues and challenges and development of resource strategies for production, technology, and people. It requires aligning alliance objectives with the overall corporate strategy.</li>
+<li><em>Partner </em> <em>assessment</em> involves analyzing a potential partner&#8217;s strengths and weaknesses; creating strategies to accommodate all partners&#8217; management styles; preparing appropriate partner selection criteria; understanding a partner&#8217;s motives for joining the alliance; and addressing resource capability gaps that may exist for a partner.</li>
+<li><em>Contract negotiation</em> involves determining whether all parties have realistic objectives; forming high-caliber negotiating teams; defining each partner&#8217;s contributions and rewards as well as protecting any proprietary information; addressing termination clauses and penalties for poor performance; and highlighting the degree to which arbitration procedures are clearly stated and understood.</li>
+<li><em>Alliance operations</em> comprise addressing senior management &#8216;s commitment; finding the caliber of resources devoted to the alliance; linking budgets and resources to strategic priorities; measuring and rewarding alliance performance; and assessing the performance and results of the alliance.</li>
+<li><em>Alliance termination</em> entails winding down the alliance—for instance, when its objectives have been met or cannot be met or when a partner adjusts priorities or reallocates resources elsewhere.</li>
+</ul>
+<h3>Potential Benefits of Strategic Alliances</h3>
+<h3>Benefits of strategic alliances vary according to each business&#8217;s strengths and objectives and may include:</h3>
+<ul>
+<li>Pooling expensive resources and share development or R &amp; D costs on new products</li>
+<li>Locking in supply chains</li>
+<li>Building credibility with customers (&#8220;Our strategic partners include&#8230;&#8221;)</li>
+<li>Allowing each partner to concentrate on activities that best match its capabilities</li>
+<li>Learning from partners and developing competencies that may be more widely exploited elsewhere</li>
+<li>Creating adequate suitability of resources and competencies for an organization to survive</li>
+</ul>
+</div>
+<div class="boundless-concept">
+<h2>E-Business Strategy</h2>
+<p>In the emerging global economy, e-business has become an increasingly necessary component of business strategy.</p>
+<div class="textbox learning-objectives">
+<h3>Learning Objectives</h3>
+<p>Define and explain the general value chain of an e-business strategy and its advantages</p>
+</div>
+<div class="textbox key-takeaways">
+<h3>Key Takeaways</h3>
+<h4>Key Points</h4>
+<ul>
+<li>The integration of information and communications technology (ICT) has revolutionized relationships within organizations and among organizations and individuals. It has also enhanced productivity, encouraged greater customer participation, enabled mass customization, and reduced costs.</li>
+<li>Companies use ICT to enhance e-business, which includes any process that a business organization (either a for-profit, governmental, or non-profit entity) conducts over a computer-mediated network.</li>
+<li>E-business enhances three primary processes: those related to production, customer focus, and internal management.</li>
+</ul>
+<h4>Key Terms</h4>
+<ul>
+<li><strong>e-commerce</strong>: Commercial activity conducted via the Internet.</li>
+<li><strong>e-learning</strong>: An online platform for training modules, whether internal or external to an organization.</li>
+<li><strong>e-business</strong>: A business that operates partially or primarily over the Internet, usually providing services to other businesses.</li>
+</ul>
+</div>
+<p>The term electronic business (commonly referred to as E-business or e-business) is sometimes used interchangeably with e-commerce. In fact, e-business encompasses a broader definition that includes not only e-commerce, but customer relationship management (CRM), business partnerships, e-learning, and electronic transactions within an organization.</p>
+<div class="wp-caption alignright" style="width: 300px;" data-global-id="gid://boundless/Image/32250">
+<div class="figure-cont"><img class="" src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1932/2017/05/31141648/4qc7cpzqqesyrneg8jkr.png" alt="image" width="290" height="412" /></p>
+<p class="wp-caption-text"><strong>Automated online assistant</strong>: In e-commerce, electronic (i.e., online) purchasing and ordering can be enhanced by the use of automated online assistants like this. This greatly reduces the burden on the company&#8217;s customer service team, allowing them to deal with only the most highly escalated cases.</p>
+</div>
+</div>
+<p>Electronic-business methods enable companies to link their internal and external data-processing systems more efficiently and flexibly, to work more closely with suppliers and partners, and to better satisfy the needs and expectations of customers. In practice, e-business is more than just e-commerce. While e-business refers to a strategic focus with an emphasis on the functions that occur using electronic capabilities, e-commerce is a subset of an overall e-business strategy.</p>
+<h3>E-Business Process</h3>
+<p>E-business involves business processes that span the entire value chain: electronic purchasing and supply-chain management, electronic order processing, customer service, and business partner collaboration. Special technical standards for e-business facilitate the exchange of data between companies. E-business software allows the integration of intrafirm and interfirm business processes. E-business can be conducted using the Internet, intranets, extranets, or some combination of these.</p>
+<p>In the emerging global economy, e-commerce and e-business have become increasingly necessary components of business strategy and strong catalysts for economic development. The integration of information and communications technology (ICT) in business has revolutionized relationships within organizations and those among organizations and individuals. Specifically, the use of ICT in business has enhanced productivity, encouraged greater customer participation, and enabled mass customization.</p>
+<h3>Advantages of E-Commerce</h3>
+<p>E-business enhances three primary processes:</p>
+<ol>
+<li><em>Production processes</em> including procurement, ordering and replenishment of stocks; processing of payments; electronic access to suppliers; and production control processes</li>
+<li><em>Customer-focused processes</em> including promotional and marketing efforts, Internet sales, customer purchase orders and payments, and customer support</li>
+<li><em>Internal management processes</em> including employee services, training, internal information-sharing, videoconferencing, and recruiting. Electronic applications enhance information flow between production and sales forces to improve sales-force productivity. ICT improves the efficiency of work-group communications and electronic publishing of internal business information.</li>
+</ol>
+</div>
+</p>
+					</div><!-- .entry-content -->
+				</div><!-- #post-## -->
+
+                  <!-- CITATIONS AND ATTRIBUTIONS -->
+          <section class="citations-section" role="contentinfo">
+            <div class="post-citations sidebar">
+              <div role="button" aria-pressed="false" id="citation-header-725" class="collapsed license-attribution-dropdown">Licenses and Attributions</div>
+              <div id="citation-list-725" style="display:none;">
+                <div class="licensing"><div class="license-attribution-dropdown-subheading">CC licensed content, Shared previously</div><ul class="citation-list"><li>Curation and Revision. <strong>Provided by</strong>: Boundless.com. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li></ul><div class="license-attribution-dropdown-subheading">CC licensed content, Specific attribution</div><ul class="citation-list"><li>vertical integration. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/vertical_integration">http://en.wiktionary.org/wiki/vertical_integration</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Product development. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Product_development">http://en.wikipedia.org/wiki/Product_development</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Horizontal integration. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Horizontal_integration">http://en.wikipedia.org/wiki/Horizontal_integration</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Market penetration. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Market_penetration">http://en.wikipedia.org/wiki/Market_penetration</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Diversification (marketing strategy). <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Diversification_(marketing_strategy)">http://en.wikipedia.org/wiki/Diversification_(marketing_strategy)</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Growth platforms. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Growth_platforms">http://en.wikipedia.org/wiki/Growth_platforms</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Vertical integration. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Vertical_integration">http://en.wikipedia.org/wiki/Vertical_integration</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Market development. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Market_development">http://en.wikipedia.org/wiki/Market_development</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Business Strategy/Marketing Plans and Strategies. <strong>Provided by</strong>: Wikibooks. <strong>Located at</strong>: <a target="_blank" href="http://en.wikibooks.org/wiki/Business_Strategy/Marketing_Plans_and_Strategies">http://en.wikibooks.org/wiki/Business_Strategy/Marketing_Plans_and_Strategies</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>diversification. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/diversification">http://en.wiktionary.org/wiki/diversification</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>integration. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/integration">http://en.wiktionary.org/wiki/integration</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>horizontal integration. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/horizontal_integration">http://en.wiktionary.org/wiki/horizontal_integration</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>100118-WIK-Goal Slide. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg">http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/about/pdm">Public Domain: No Known Copyright</a></em></li><li>Mergers and acquisitions. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Mergers_and_acquisitions">http://en.wikipedia.org/wiki/Mergers_and_acquisitions</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Mergers and acquisitions. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Mergers_and_acquisitions">http://en.wikipedia.org/wiki/Mergers_and_acquisitions</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Mergers and acquisitions. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Mergers_and_acquisitions">http://en.wikipedia.org/wiki/Mergers_and_acquisitions</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Mergers and acquisitions. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Mergers_and_acquisitions">http://en.wikipedia.org/wiki/Mergers_and_acquisitions</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Consolidation (business). <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Consolidation_(business)">http://en.wikipedia.org/wiki/Consolidation_(business)</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Mergers and acquisitions. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Mergers_and_acquisitions">http://en.wikipedia.org/wiki/Mergers_and_acquisitions</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Boundless. <strong>Provided by</strong>: Boundless Learning. <strong>Located at</strong>: <a target="_blank" href="http://www.boundless.com//psychology/definition/consolidation">http://www.boundless.com//psychology/definition/consolidation</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>merger. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/merger">http://en.wiktionary.org/wiki/merger</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>acquisition. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/acquisition">http://en.wiktionary.org/wiki/acquisition</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>100118-WIK-Goal Slide. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg">http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/about/pdm">Public Domain: No Known Copyright</a></em></li><li>Graph of Bank Mergers in USA. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg">http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Globalization. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Globalization%23Global_business_organization">http://en.wikipedia.org/wiki/Globalization%23Global_business_organization</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Global strategy. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Global_strategy">http://en.wikipedia.org/wiki/Global_strategy</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Global strategy. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Global_strategy">http://en.wikipedia.org/wiki/Global_strategy</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Economies of scale. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Economies_of_scale">http://en.wikipedia.org/wiki/Economies_of_scale</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Globalization. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Globalization%23Global_business_organization">http://en.wikipedia.org/wiki/Globalization%23Global_business_organization</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>multinational. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/multinational">http://en.wiktionary.org/wiki/multinational</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>centralized. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/centralized">http://en.wiktionary.org/wiki/centralized</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>fixed costs. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/fixed_costs">http://en.wiktionary.org/wiki/fixed_costs</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>100118-WIK-Goal Slide. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg">http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/about/pdm">Public Domain: No Known Copyright</a></em></li><li>Graph of Bank Mergers in USA. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg">http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Sustainable Business/Industry sector influences. <strong>Provided by</strong>: Wikibooks. <strong>Located at</strong>: <a target="_blank" href="http://en.wikibooks.org/wiki/Sustainable_Business/Industry_sector_influences">http://en.wikibooks.org/wiki/Sustainable_Business/Industry_sector_influences</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Strategic alliance. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Strategic_alliance">http://en.wikipedia.org/wiki/Strategic_alliance</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Strategic sourcing. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Strategic_sourcing%23Cooperative_sourcing">http://en.wikipedia.org/wiki/Strategic_sourcing%23Cooperative_sourcing</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Strategic alliance. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Strategic_alliance">http://en.wikipedia.org/wiki/Strategic_alliance</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>Strategic alliance. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Strategic_alliance">http://en.wikipedia.org/wiki/Strategic_alliance</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>alliance. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/alliance">http://en.wiktionary.org/wiki/alliance</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>100118-WIK-Goal Slide. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg">http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/about/pdm">Public Domain: No Known Copyright</a></em></li><li>Graph of Bank Mergers in USA. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg">http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>U.S. Patents from 1790-2010. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Patent%23mediaviewer/File:US_patents_1790-2008.png">http://en.wikipedia.org/wiki/Patent%23mediaviewer/File:US_patents_1790-2008.png</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>E-business. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/E-business">http://en.wikipedia.org/wiki/E-business</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>E-Commerce and E-Business/Introduction. <strong>Provided by</strong>: Wikibooks. <strong>Located at</strong>: <a target="_blank" href="http://en.wikibooks.org/wiki/E-Commerce_and_E-Business/Introduction">http://en.wikibooks.org/wiki/E-Commerce_and_E-Business/Introduction</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>E-business. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/E-business">http://en.wikipedia.org/wiki/E-business</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>E-Commerce and E-Business/Concepts and Definitions. <strong>Provided by</strong>: Wikibooks. <strong>Located at</strong>: <a target="_blank" href="http://en.wikibooks.org/wiki/E-Commerce_and_E-Business/Concepts_and_Definitions">http://en.wikibooks.org/wiki/E-Commerce_and_E-Business/Concepts_and_Definitions</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>e-commerce. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/e-commerce">http://en.wiktionary.org/wiki/e-commerce</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>e-business. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/e-business">http://en.wiktionary.org/wiki/e-business</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>e-mail. <strong>Provided by</strong>: Wiktionary. <strong>Located at</strong>: <a target="_blank" href="http://en.wiktionary.org/wiki/e-mail">http://en.wiktionary.org/wiki/e-mail</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>100118-WIK-Goal Slide. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg">http://commons.wikimedia.org/wiki/File:100118-WIK-Goal_Slide.jpg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/about/pdm">Public Domain: No Known Copyright</a></em></li><li>Graph of Bank Mergers in USA. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg">http://commons.wikimedia.org/wiki/File:Graph_of_Bank_Mergers_in_USA.svg</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA: Attribution-ShareAlike</a></em></li><li>U.S. Patents from 1790-2010. <strong>Provided by</strong>: Wikipedia. <strong>Located at</strong>: <a target="_blank" href="http://en.wikipedia.org/wiki/Patent%23mediaviewer/File:US_patents_1790-2008.png">http://en.wikipedia.org/wiki/Patent%23mediaviewer/File:US_patents_1790-2008.png</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Automated_online_assistant.png. <strong>Provided by</strong>: Wikimedia. <strong>Located at</strong>: <a target="_blank" href="https://commons.wikimedia.org/wiki/File:Automated_online_assistant.png">https://commons.wikimedia.org/wiki/File:Automated_online_assistant.png</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/about/pdm">Public Domain: No Known Copyright</a></em></li></ul></div>              </div>
+            </div>
+          </section>
+        
+
+									<!-- edit page button -->
+									
+				<!-- page nav buttons -->
+				<nav class="bottom-nav-buttons" role="navigation">
+					<a class="post-nav-button" id="prev" href="https://courses.lumenlearning.com/boundless-management/chapter/creating-strategy-common-approaches/">
+				Previous			</a>
+		
+					<a class="post-nav-button" id="next" href="https://courses.lumenlearning.com/boundless-management/chapter/the-planning-process/">
+				Next			</a>
+			</nav>
+			</div><!-- #content -->
+
+			
+	<!-- This does nothing and exists only to block sidebar.php of the Luther theme from rendering. -->
+
+	</div><!-- #wrap -->
+	<div class="push"></div>
+
+	</div><!-- .wrapper for sitting footer at the bottom of the page -->
+
+<div class="footer">
+	<div class="inner">
+		<!-- logo options -->
+									<img class="lumen-footer-logo" src="https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/images/FooterLumenCandela.png" alt="Footer Logo Lumen Candela" />
+				<p style="margin-top:3.5em;text-align:center;">
+					<a href="https://lumenlearning.com/policies/privacy-policy/" target="_blank" style="color:#959595;">Privacy Policy</a>
+				</p>
+						</div><!-- #inner -->
+</div><!-- #footer -->
+
+<script async type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/pressbooks-book/dist/scripts/keyboard-nav.js?id=5530f96084c639f108ac'></script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/js/audio-behavior.js?ver=4.9.8'></script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/js/hide-answer.js?ver=4.9.8'></script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/js/lti-buttons.js?ver=4.9.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpipaViews = {"url":"https:\/\/courses.lumenlearning.com\/boundless-management\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/plugins/mts-wp-in-post-ads/public/js/wp-in-post-ads-views.js?ver=1.2.3'></script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thePost = {"id":"725"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://courses.lumenlearning.com/boundless-management/wp-content/themes/bombadil/assets/js/attributions.js?ver=4.9.8'></script>
+<script>if (typeof sendIframeResize === "function") { sendIframeResize(); }</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"0d4d84695b","applicationID":"12680714","transactionName":"ZQBaNkRZXEdZBkcLWlxKeQFCUV1aFxZaDFJeAA==","queueTime":0,"applicationTime":254,"atts":"SUdZQAxDT0k=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>
